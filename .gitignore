@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.venv/
+env/
+.env
+shopgenie.db
+
+# Node / Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+.eslintcache
+
+# OS Files
+.DS_Store
+Thumbs.db

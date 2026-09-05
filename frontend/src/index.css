@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-paper text-ink antialiased font-sans scroll-smooth;
+  }
+
+  ::selection {
+    @apply bg-forest-100 text-forest-700;
+  }
+
+  *:focus-visible {
+    outline: 2px solid theme('colors.forest.500');
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  /* Standard card surface used across the app */
+  .card {
+    @apply bg-white border border-sand rounded-xl;
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 hover:border-sandDark hover:shadow-md hover:shadow-black/5;
+  }
+
+  /* A small folded "price tag" corner notch — the one recurring structural
+     motif tying the design back to a shop rather than a dashboard. */
+  .tag-corner {
+    position: relative;
+  }
+  .tag-corner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 22px 22px 0;
+    border-color: transparent theme('colors.ember.400') transparent transparent;
+  }
+
+  /* Receipt-style dashed tear divider */
+  .tear-divider {
+    border-top: 1.5px dashed theme('colors.sandDark');
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-paperDim;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-sandDark rounded-full hover:bg-forest-400/60 transition-colors;
+}
